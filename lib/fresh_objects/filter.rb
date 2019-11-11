@@ -15,6 +15,7 @@ module FreshObjects
   # through them and only keep the latest, non-stale copies of the objects.
   class Filter
     extend Forwardable
+    include Enumerable
 
     attr_reader :id_key,
                 :lookup,
@@ -22,6 +23,8 @@ module FreshObjects
                 :timestamp_key
 
     def_delegators :lookup, :timestamps_by_id
+
+    def_delegators :objects, :each
 
     def initialize(lookup: {}, id_key: :id, timestamp_key: nil, resolver: Objectable.resolver)
       @lookup        = Lookup.make(lookup)
@@ -44,13 +47,13 @@ module FreshObjects
       self
     end
 
-    def objects
-      objects_by_id.values
-    end
-
     private
 
     attr_reader :objects_by_id
+
+    def objects
+      objects_by_id.values
+    end
 
     def resolve_timestamp(object, default_timestamp)
       # If we have a timestamp key then lets try and get it from the record.

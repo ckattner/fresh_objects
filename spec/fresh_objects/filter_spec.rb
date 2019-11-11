@@ -35,7 +35,7 @@ RSpec.describe FreshObjects::Filter do
 
       subject.add(object, default_timestamp: '1950-01-03 11:59:59 UTC')
 
-      expect(subject.objects).to eq([])
+      expect(subject.to_a).to eq([])
     end
 
     it 'adds existing objects after timestamp' do
@@ -46,7 +46,7 @@ RSpec.describe FreshObjects::Filter do
 
       subject.add(object, default_timestamp: '1950-01-03 12:00:01 UTC')
 
-      expect(subject.objects).to eq([object])
+      expect(subject.to_a).to eq([object])
     end
 
     it 'adds new objects' do
@@ -57,7 +57,7 @@ RSpec.describe FreshObjects::Filter do
 
       subject.add(object, default_timestamp: '1950-01-03 12:00:01 UTC')
 
-      expect(subject.objects).to eq([object])
+      expect(subject.to_a).to eq([object])
     end
   end
 
@@ -71,7 +71,7 @@ RSpec.describe FreshObjects::Filter do
 
       subject.add(object)
 
-      expect(subject.objects).to eq([])
+      expect(subject.to_a).to eq([])
     end
 
     it 'adds existing objects after timestamp' do
@@ -83,7 +83,7 @@ RSpec.describe FreshObjects::Filter do
 
       subject.add(object)
 
-      expect(subject.objects).to eq([object])
+      expect(subject.to_a).to eq([object])
     end
   end
 
@@ -108,7 +108,7 @@ RSpec.describe FreshObjects::Filter do
       before(:each) { subject.add_each([object1, object2]) }
 
       it 'keeps latest object' do
-        expect(subject.objects).to eq([object2])
+        expect(subject.to_a).to eq([object2])
       end
     end
 
@@ -116,7 +116,7 @@ RSpec.describe FreshObjects::Filter do
       before(:each) { subject.add_each([object2, object1]) }
 
       it 'keeps latest object' do
-        expect(subject.objects).to eq([object2])
+        expect(subject.to_a).to eq([object2])
       end
     end
   end
