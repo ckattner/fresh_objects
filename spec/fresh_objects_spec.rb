@@ -9,7 +9,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Timestampd do
+RSpec.describe FreshObjects do
   describe 'class methods' do
     let(:arguments) do
       {

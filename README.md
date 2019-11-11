@@ -1,6 +1,6 @@
-# Timestampd
+# Fresh Objects
 
-[![Gem Version](https://badge.fury.io/rb/timestampd.svg)](https://badge.fury.io/rb/timestampd) [![Build Status](https://travis-ci.org/bluemarblepayroll/timestampd.svg?branch=master)](https://travis-ci.org/bluemarblepayroll/timestampd) [![Maintainability](https://api.codeclimate.com/v1/badges/048e994c6483028a668b/maintainability)](https://codeclimate.com/github/bluemarblepayroll/timestampd/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/048e994c6483028a668b/test_coverage)](https://codeclimate.com/github/bluemarblepayroll/timestampd/test_coverage) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Gem Version](https://badge.fury.io/rb/fresh_objects.svg)](https://badge.fury.io/rb/fresh_objects) [![Build Status](https://travis-ci.org/bluemarblepayroll/fresh_objects.svg?branch=master)](https://travis-ci.org/bluemarblepayroll/fresh_objects) [![Maintainability](https://api.codeclimate.com/v1/badges/157958522c93760a396c/maintainability)](https://codeclimate.com/github/bluemarblepayroll/fresh_objects/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/157958522c93760a396c/test_coverage)](https://codeclimate.com/github/bluemarblepayroll/fresh_objects/test_coverage) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This library was built to support incoming data streams where you may or may not get the data in order.  Since the data coming in is guaranteed to be complete "per object", you only need to keep the latest copy of it and discard stale versions.  You can use this library to pass in all this data (in or out of order) and it will ensure only the freshest data is kept (stale copies are discarded.)
 
@@ -11,13 +11,13 @@ Note: persistence is outside of the scope of this library.  You can, however, us
 To install through Rubygems:
 
 ````bash
-gem install install timestampd
+gem install install fresh_objects
 ````
 
 You can also add this to your Gemfile:
 
 ````bash
-bundle add timestampd
+bundle add fresh_objects
 ````
 
 ## Examples
@@ -47,7 +47,7 @@ objects = [
 You could pass these objects into this library in order to resolve that the object you really want is the "Superman" object:
 
 ````ruby
-filter = Timestampd.filter(timestamp_key: :timestamp).add_each(objects)
+filter = FreshObjects.filter(timestamp_key: :timestamp).add_each(objects)
 
 filtered_objects = filter.objects
 ````
@@ -66,9 +66,9 @@ Now, filtered_objects should equal:
 
 Notes:
 
-* You can change the object ID key by passing in the `id_key` into `Timestampd#filter`.
-* You can change the timestamp key by passing in the `timestamp_key` into `Timestampd#filter`.
-* You can change the resolver by passing in a custom `resolver` into `Timestampd#filter`. Technically, a resolver can be anything with a #get ethod based on the [Objectable resolver#get method](https://github.com/bluemarblepayroll/objectable/blob/master/lib/objectable/resolver.rb).
+* You can change the object ID key by passing in the `id_key` into `FreshObjects#filter`.
+* You can change the timestamp key by passing in the `timestamp_key` into `FreshObjects#filter`.
+* You can change the resolver by passing in a custom `resolver` into `FreshObjects#filter`. Technically, a resolver can be anything with a #get ethod based on the [Objectable resolver#get method](https://github.com/bluemarblepayroll/objectable/blob/master/lib/objectable/resolver.rb).
 
 ### Saving a Filter
 
@@ -81,7 +81,7 @@ lookup = filter.timestamps_by_id
 Then, you can re-constitute a filter from this:
 
 ````ruby
-filter = Timestampd.filter(lookup: timestamps_by_id)
+filter = FreshObjects.filter(lookup: timestamps_by_id)
 ````
 
 Notes:
@@ -95,10 +95,10 @@ Notes:
 
 Basic steps to take to get this repository compiling:
 
-1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (check timestampd.gemspec for versions supported)
+1. Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/) (check fresh_objects.gemspec for versions supported)
 2. Install bundler (gem install bundler)
-3. Clone the repository (git clone git@github.com:bluemarblepayroll/timestampd.git)
-4. Navigate to the root folder (cd timestampd)
+3. Clone the repository (git clone git@github.com:bluemarblepayroll/fresh_objects.git)
+4. Navigate to the root folder (cd fresh_objects)
 5. Install dependencies (bundle)
 
 ### Running Tests
@@ -134,7 +134,7 @@ Note: ensure you have proper authorization before trying to publish new versions
 After code changes have successfully gone through the Pull Request review process then the following steps should be followed for publishing new versions:
 
 1. Merge Pull Request into master
-2. Update `lib/timestampd/version.rb` using [semantic versioning](https://semver.org/)
+2. Update `lib/fresh_objects/version.rb` using [semantic versioning](https://semver.org/)
 3. Install dependencies: `bundle`
 4. Update `CHANGELOG.md` with release notes
 5. Commit & push master to remote and ensure CI builds master successfully
@@ -142,7 +142,7 @@ After code changes have successfully gone through the Pull Request review proces
 
 ## Code of Conduct
 
-Everyone interacting in this codebase, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/bluemarblepayroll/timestampd/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in this codebase, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/bluemarblepayroll/fresh_objects/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 

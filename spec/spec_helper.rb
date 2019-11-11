@@ -19,4 +19,4 @@ unless ENV['DISABLE_SIMPLECOV'] == 'true'
   end
 end
 
-require './lib/timestampd'
+require './lib/fresh_objects'

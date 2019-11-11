@@ -7,7 +7,7 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-module Timestampd
+module FreshObjects
   # A data structure which holds a timestamp per ID.  It can then be used as a performant lookup
   # to see if an incoming timestamp is stale or new.  It is essentially backed by a hash
   # where the key is a string and the value is a Time object.

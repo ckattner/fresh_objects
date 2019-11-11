@@ -7,6 +7,6 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-module Timestampd
+module FreshObjects
   VERSION = '1.0.0-alpha'
 end

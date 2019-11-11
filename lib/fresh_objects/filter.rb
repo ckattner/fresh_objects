@@ -9,7 +9,7 @@
 
 require_relative 'lookup'
 
-module Timestampd
+module FreshObjects
   # This class can do a "row/timestamp-based semantic merge".  In other words:
   # you can use this class to dump any number of arrays of objects into and it will sift
   # through them and only keep the latest, non-stale copies of the objects.

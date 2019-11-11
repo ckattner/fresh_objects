@@ -10,10 +10,10 @@
 require 'objectable'
 require 'time'
 
-require_relative 'timestampd/filter'
+require_relative 'fresh_objects/filter'
 
 # Top-level namespace
-module Timestampd
+module FreshObjects
   class << self
     # Syntactic sugary proxy for easy building of Filter instances.
     def filter(*args)

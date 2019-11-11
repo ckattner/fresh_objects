@@ -9,7 +9,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Timestampd::Filter do
+RSpec.describe FreshObjects::Filter do
   let(:lookup) do
     {
       'rizzo': '1950-01-03 12:00:00 UTC'

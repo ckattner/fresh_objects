@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require './lib/timestampd/version'
+require './lib/fresh_objects/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'timestampd'
-  s.version     = Timestampd::VERSION
+  s.name        = 'fresh_objects'
+  s.version     = FreshObjects::VERSION
   s.summary     = 'Filtering algorithm that keeps track of object timestamps and only keeps the freshest version of each object.'
 
   s.description = <<-DESCRIPTION
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
-  s.homepage    = 'https://github.com/bluemarblepayroll/timestampd'
+  s.homepage    = 'https://github.com/bluemarblepayroll/fresh_objects'
   s.license     = 'MIT'
 
   s.required_ruby_version = '>= 2.3.8'

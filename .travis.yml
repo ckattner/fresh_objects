@@ -1,6 +1,6 @@
 env:
   global:
-    - CC_TEST_REPORTER_ID=225674cf534ab7e9ae3f137d4326429322a0a8eb65958e17c7b13e93b41715c6
+    - CC_TEST_REPORTER_ID=b569b140239d7341120e5d507f418e417bc9f4e78ba008f46eb8ee3015ab45ec
 language: ruby
 rvm:
   # Build on the latest stable of all supported Rubies (https://www.ruby-lang.org/en/downloads/):

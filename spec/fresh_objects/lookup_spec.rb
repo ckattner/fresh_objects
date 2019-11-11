@@ -9,7 +9,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Timestampd::Lookup do
+RSpec.describe FreshObjects::Lookup do
   let(:rizzo_stamp) { '1950-01-03 12:00:00 UTC' }
 
   let(:later_stamp) { '1950-01-03 12:00:01 UTC' }

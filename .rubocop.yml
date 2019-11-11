@@ -1,7 +1,7 @@
 Metrics/LineLength:
   Max: 100
   Exclude:
-    - timestampd.gemspec
+    - fresh_objects.gemspec
 
 Metrics/BlockLength:
   ExcludedMethods:
