@@ -13,8 +13,6 @@ module Timestampd
   # where the key is a string and the value is a Time object.
   # You can also pass in a hash into the constructor for configuration ease.
   class Lookup
-    extend Forwardable
-
     class << self
       def make(timestamps_by_id = {})
         if timestamps_by_id.is_a?(self)
@@ -26,8 +24,6 @@ module Timestampd
     end
 
     attr_reader :timestamps_by_id
-
-    def_delegators :timestamps_by_id, :as_json, :to_json
 
     def initialize(timestamps_by_id = {})
       @timestamps_by_id = timestamps_by_id.map do |id, timestamp|

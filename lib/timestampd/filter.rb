@@ -14,10 +14,14 @@ module Timestampd
   # you can use this class to dump any number of arrays of objects into and it will sift
   # through them and only keep the latest, non-stale copies of the objects.
   class Filter
+    extend Forwardable
+
     attr_reader :id_key,
                 :lookup,
                 :resolver,
                 :timestamp_key
+
+    def_delegators :lookup, :timestamps_by_id
 
     def initialize(lookup: {}, id_key: :id, timestamp_key: nil, resolver: Objectable.resolver)
       @lookup        = Lookup.make(lookup)

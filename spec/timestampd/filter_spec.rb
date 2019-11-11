@@ -18,6 +18,14 @@ RSpec.describe Timestampd::Filter do
 
   subject { described_class.new(lookup: lookup, timestamp_key: :timestamp) }
 
+  specify '#timestamps_by_id returns the underlying lookup hash' do
+    expected = {
+      'rizzo' => Time.parse('1950-01-03 12:00:00 UTC').utc
+    }
+
+    expect(subject.timestamps_by_id).to eq(expected)
+  end
+
   context 'using default_timestamp' do
     it 'skips existing objects before timestamp' do
       object = {
