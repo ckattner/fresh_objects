@@ -5,10 +5,12 @@ require './lib/timestampd/version'
 Gem::Specification.new do |s|
   s.name        = 'timestampd'
   s.version     = Timestampd::VERSION
-  s.summary     = 'Hash-based data structures and algorithms'
+  s.summary     = 'Filtering algorithm that keeps track of object timestamps and only keeps the freshest version of each object.'
 
   s.description = <<-DESCRIPTION
-    This library offers general purpose higher-level data structures that focus on Hash manipulation.
+    This library provides a simple algorithm for object filtering based on an object's timestamp.
+    A master list of object ID's and timestamps are managed by this library and can be persisted
+    (outside of this library) for picking up where you last left off.
   DESCRIPTION
 
   s.authors     = ['Matthew Ruggio']
@@ -20,6 +22,8 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
 
   s.required_ruby_version = '>= 2.3.8'
+
+  s.add_dependency('objectable', '~>1')
 
   s.add_development_dependency('guard-rspec', '~>4.7')
   s.add_development_dependency('pry', '~>0')

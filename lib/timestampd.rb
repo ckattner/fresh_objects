@@ -7,6 +7,17 @@
 # LICENSE file in the root directory of this source tree.
 #
 
+require 'objectable'
+require 'time'
+
+require_relative 'timestampd/filter'
+
 # Top-level namespace
 module Timestampd
+  class << self
+    # Syntactic sugary proxy for easy building of Filter instances.
+    def filter(*args)
+      Filter.new(*args)
+    end
+  end
 end

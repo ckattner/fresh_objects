@@ -1,5 +1,7 @@
 Metrics/LineLength:
   Max: 100
+  Exclude:
+    - timestampd.gemspec
 
 Metrics/BlockLength:
   ExcludedMethods:
