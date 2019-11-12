@@ -28,7 +28,7 @@ Say we have the following dataset:
 objects = [
   {
     id: 1,
-    name: 'Batman'
+    name: 'Clark Kent'
     timestamp: '2019-01-02 12:00:00 UTC'
   },
   {
@@ -38,7 +38,7 @@ objects = [
   },
   {
     id: 1,
-    name: 'Ironman'
+    name: 'John Doe'
     timestamp: '2019-01-02 11:59:59 UTC'
   }
 ]
@@ -68,7 +68,16 @@ Notes:
 
 * You can change the object ID key by passing in the `id_key` into `FreshObjects#filter`.
 * You can change the timestamp key by passing in the `timestamp_key` into `FreshObjects#filter`.
-* You can change the resolver by passing in a custom `resolver` into `FreshObjects#filter`. Technically, a resolver can be anything with a #get ethod based on the [Objectable resolver#get method](https://github.com/bluemarblepayroll/objectable/blob/master/lib/objectable/resolver.rb).
+
+### The Resolver
+
+A resolver is an object with a `get` method with the signature: `get(object, expression)` where object is the inputted object and expression is the key (or key-path of the value you want to retrieve.)  By default, the Objectable is used.  Objectable provides several benefits out-of-the-box since it:
+
+* supports nested objects (using key-path dot notation)
+* works with hashes and all other object types
+* works with attributes and methods
+
+Chances are the default resolver works.  In case you need to enhance or change the resolution implementation you are free to pass in your own customization of Objectable or swap it for a who new implementation altogether.  [See the Objectable repository for more information](https://github.com/bluemarblepayroll/objectable).
 
 ### Saving a Filter
 
